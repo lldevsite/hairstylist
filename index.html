@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="/css/base.css" />
+  <link rel="stylesheet" href="/css/shared.css" />
+  <link rel="stylesheet" href="/css/home.css" />
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+  </style>
+
+  <script src="/script/components-loader.js"></script>
+  <script src="/script/base.js"></script>
+
+  <title>Haristylist - Home</title>
+</head>
+
+<body class="flex column">
+  <div id="navbar"></div>
+
+  <div class="flex column hero-image">
+    <img src="/img/hero.png" alt="" />
+  </div>
+
+  <div class="flex row hero">
+    <div class="flex column left">
+      <h6>NON ASPETTARE</h6>
+      <h1>Nuovo Look?</br><span>Fallo Adesso!</span></h1>
+      <p>Affidati a dei professioni, al resto ci pensiamo noi: taglio, colore e molto altro!</p>
+      <div class="flex row btn-container">
+        <a href="#prenota" class="cta-btn-fancy">
+          <p class="white">Prenota ora</p>
+          <div class="cta-icon-wrapper">
+            <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </div>
+        </a>
+        <a href="#contatti" class="cta-btn-secondary">
+          <p class="bold soft">Conttataci</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SKELETON 1: Sezione Servizi (Testo a destra, Listino a sinistra) -->
+<div class="skeleton-section bg-avorio flex column">
+  <div class="skeleton-container flex wrap">
+    <div class="skeleton-col flex column">
+      <div class="skeleton-item title-ph center">I Nostri Servizi</div>
+      <div class="skeleton-item text-ph"></div>
+      <div class="skeleton-item text-ph short"></div>
+    </div>
+    <div class="skeleton-col flex column gap-20">
+      <div class="skeleton-item box-ph"></div>
+      <div class="skeleton-item box-ph"></div>
+      <div class="skeleton-item box-ph"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SKELETON 2: Sezione Punti di Forza (4 Card) -->
+<div class="skeleton-section bg-rosa flex column">
+  <div class="skeleton-item title-ph center" style="border-bottom: 2px solid #fcfbfa;">Perché Sceglierci</div>
+  <div class="skeleton-container grid-4">
+    <div class="skeleton-item card-ph"></div>
+    <div class="skeleton-item card-ph"></div>
+    <div class="skeleton-item card-ph"></div>
+    <div class="skeleton-item card-ph"></div>
+  </div>
+</div>
+
+<!-- SKELETON 3: Sezione Galleria (Griglia Immagini) -->
+<div class="skeleton-section bg-avorio flex column">
+  <div class="skeleton-item title-ph center">Portfolio & Look</div>
+  <div class="skeleton-container gallery-grid">
+    <div class="skeleton-item img-ph tall"></div>
+    <div class="skeleton-item img-ph"></div>
+    <div class="skeleton-item img-ph wide"></div>
+    <div class="skeleton-item img-ph"></div>
+  </div>
+</div>
+
+<!-- SEZIONE PRENOTAZIONE (Koalendar) -->
+<div class="booking-section flex column" id="prenota">
+  <div class="skeleton-item title-ph center">Prenota il tuo appuntamento</div>
+  <div class="flex column koelendar">
+    <!-- Koalendar Inline Embed Start -->
+    <div id="inline-widget-incontra-libe"></div>
+    <script>window.Koalendar = window.Koalendar || function () { (Koalendar.props = Koalendar.props || []).push(arguments) };</script>
+    <script async src="https://koalendar.com/assets/widget.js"></script>
+    <script>Koalendar('inline', { "url": "https://koalendar.com/e/incontra-libe", "selector": "#inline-widget-incontra-libe" });</script>
+    <!-- Koalendar Inline Embed End -->
+  </div>
+</div>
+
+
+  <div id="footer"></div>
+</body>
+
+</html>
