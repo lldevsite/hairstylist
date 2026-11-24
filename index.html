@@ -1,108 +1,504 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Debora Acconciature Unisex, parrucchiera a Biandrate</title>
+  <meta name="description"
+    content="Taglio, colore e acconciature per lei e per lui a Biandrate (NO). Su appuntamento, orario continuato su richiesta. Tel. 0321 83 84 14." />
+  <meta name="theme-color" content="#c12471" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..800;1,6..96,400..800&family=Encode+Sans:wdth,wght@75..100,400..700&display=swap"
+    rel="stylesheet" />
 
   <link rel="stylesheet" href="/css/base.css" />
   <link rel="stylesheet" href="/css/shared.css" />
   <link rel="stylesheet" href="/css/home.css" />
 
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-  </style>
-
   <script src="/script/components-loader.js"></script>
   <script src="/script/base.js"></script>
-
-  <title>Haristylist - Home</title>
 </head>
 
-<body class="flex column">
+<body data-page="home">
+  <a class="skip-link" href="#main">Vai al contenuto</a>
   <div id="navbar"></div>
 
-  <div class="flex column hero-image">
-    <img src="/img/hero.png" alt="" />
-  </div>
+  <main id="main">
 
-  <div class="flex row hero">
-    <div class="flex column left">
-      <h6>NON ASPETTARE</h6>
-      <h1>Nuovo Look?</br><span>Fallo Adesso!</span></h1>
-      <p>Affidati a dei professioni, al resto ci pensiamo noi: taglio, colore e molto altro!</p>
-      <div class="flex row btn-container">
-        <a href="#prenota" class="cta-btn-fancy">
-          <p class="white">Prenota ora</p>
-          <div class="cta-icon-wrapper">
-            <svg class="cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-              <polyline points="12 5 19 12 12 19"></polyline>
-            </svg>
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <span class="hero-watermark" aria-hidden="true"></span>
+      <div class="hero-photo">
+        <img src="/img/hero.jpg" alt="Una parrucchiera sistema i capelli lunghi e mossi di una cliente in salone"
+          width="2752" height="1536" fetchpriority="high" />
+      </div>
+
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <h1 id="hero-title">
+            <span class="line"><span>Capelli che</span></span>
+            <span class="line"><span>ti somigliano.</span></span>
+          </h1>
+          <p class="lede hero-text">Taglio, colore e acconciature per lei e per lui, nel salone di Debora a Biandrate.
+            Lavoriamo su appuntamento, con orario continuato quando ti serve.</p>
+          <div class="hero-actions">
+            <a href="#servizi" class="btn btn-light">
+              Scopri di più
+              <span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 5v14M5 12l7 7 7-7" />
+                </svg></span>
+            </a>
+            <a href="#contatti" class="btn btn-ghost" data-wa="Ciao Debora, vorrei prenotare un appuntamento.">Prenota
+              su WhatsApp</a>
           </div>
-        </a>
-        <a href="#contatti" class="cta-btn-secondary">
-          <p class="bold soft">Conttataci</p>
+        </div>
+
+        <a class="hero-rating" href="#recensioni">
+          <span class="stars" aria-hidden="true">
+            <svg viewBox="0 0 100 20">
+              <use href="#star" x="0" width="20" height="20" />
+              <use href="#star" x="20" width="20" height="20" />
+              <use href="#star" x="40" width="20" height="20" />
+              <use href="#star" x="60" width="20" height="20" />
+              <use href="#star" x="80" width="20" height="20" />
+            </svg>
+          </span>
+          <span><strong>4,9</strong> su Google, 30 recensioni</span>
         </a>
       </div>
-    </div>
-  </div>
+    </section>
 
-  <!-- SKELETON 1: Sezione Servizi (Testo a destra, Listino a sinistra) -->
-<div class="skeleton-section bg-avorio flex column">
-  <div class="skeleton-container flex wrap">
-    <div class="skeleton-col flex column">
-      <div class="skeleton-item title-ph center">I Nostri Servizi</div>
-      <div class="skeleton-item text-ph"></div>
-      <div class="skeleton-item text-ph short"></div>
-    </div>
-    <div class="skeleton-col flex column gap-20">
-      <div class="skeleton-item box-ph"></div>
-      <div class="skeleton-item box-ph"></div>
-      <div class="skeleton-item box-ph"></div>
-    </div>
-  </div>
-</div>
+    <!-- SERVIZI -->
+    <section class="services" id="servizi" aria-labelledby="servizi-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="servizi-title" data-reveal="rise">I nostri servizi</h2>
+          <p class="lede" data-reveal="rise" style="--d: .1s">Tre cose che facciamo ogni giorno. Tocca una card per
+            vedere cosa comprende.</p>
+        </div>
 
-<!-- SKELETON 2: Sezione Punti di Forza (4 Card) -->
-<div class="skeleton-section bg-rosa flex column">
-  <div class="skeleton-item title-ph center" style="border-bottom: 2px solid #fcfbfa;">Perché Sceglierci</div>
-  <div class="skeleton-container grid-4">
-    <div class="skeleton-item card-ph"></div>
-    <div class="skeleton-item card-ph"></div>
-    <div class="skeleton-item card-ph"></div>
-    <div class="skeleton-item card-ph"></div>
-  </div>
-</div>
+        <div class="flip-grid">
+          <!-- Card 1 -->
+          <article class="flip-card" data-reveal="rise">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <img src="/img/servizi/taglio.jpg" alt="Piega con phon e spazzola in salone" loading="lazy"
+                  width="900" height="601" />
+                <div class="flip-front-text">
+                  <h3>Taglio e piega</h3>
+                  <button class="flip-toggle" type="button" data-flip aria-label="Dettagli: Taglio e piega">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="flip-face flip-back">
+                <h3>Taglio e piega</h3>
+                <p>Prima parliamo: come porti i capelli, quanto tempo hai la mattina, cosa non vuoi più vedere allo
+                  specchio. Poi si taglia.</p>
+                <ul>
+                  <li>Shampoo e trattamento</li>
+                  <li>Taglio su misura, donna e uomo</li>
+                  <li>Piega liscia, mossa o naturale</li>
+                </ul>
+                <div class="flip-back-actions">
+                  <a href="#contatti" class="btn btn-light"
+                    data-wa="Ciao Debora, vorrei prenotare taglio e piega.">Prenota <span class="btn-icon"><svg
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg></span></a>
+                  <button class="flip-toggle" type="button" data-flip aria-label="Torna alla foto">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" aria-hidden="true">
+                      <path d="M6 6l12 12M18 6L6 18" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
 
-<!-- SKELETON 3: Sezione Galleria (Griglia Immagini) -->
-<div class="skeleton-section bg-avorio flex column">
-  <div class="skeleton-item title-ph center">Portfolio & Look</div>
-  <div class="skeleton-container gallery-grid">
-    <div class="skeleton-item img-ph tall"></div>
-    <div class="skeleton-item img-ph"></div>
-    <div class="skeleton-item img-ph wide"></div>
-    <div class="skeleton-item img-ph"></div>
-  </div>
-</div>
+          <!-- Card 2 -->
+          <article class="flip-card" data-reveal="rise" style="--d: .12s">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <img src="/img/servizi/colore.jpg" alt="Capelli lunghi mossi con colore lilla" loading="lazy"
+                  width="900" height="1350" />
+                <div class="flip-front-text">
+                  <h3>Colore e schiariture</h3>
+                  <button class="flip-toggle" type="button" data-flip aria-label="Dettagli: Colore e schiariture">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="flip-face flip-back">
+                <h3>Colore e schiariture</h3>
+                <p>Dal ritocco della ricrescita al balayage: la tonalità la scegliamo insieme, allo specchio, guardando
+                  la tua pelle e i tuoi occhi.</p>
+                <ul>
+                  <li>Colore pieno e ritocco radici</li>
+                  <li>Balayage e colpi di sole</li>
+                  <li>Tonalizzante e gloss</li>
+                </ul>
+                <div class="flip-back-actions">
+                  <a href="#contatti" class="btn btn-light"
+                    data-wa="Ciao Debora, vorrei prenotare un servizio colore.">Prenota <span class="btn-icon"><svg
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg></span></a>
+                  <button class="flip-toggle" type="button" data-flip aria-label="Torna alla foto">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" aria-hidden="true">
+                      <path d="M6 6l12 12M18 6L6 18" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
 
-<!-- SEZIONE PRENOTAZIONE (Koalendar) -->
-<div class="booking-section flex column" id="prenota">
-  <div class="skeleton-item title-ph center">Prenota il tuo appuntamento</div>
-  <div class="flex column koelendar">
-    <!-- Koalendar Inline Embed Start -->
-    <div id="inline-widget-incontra-libe"></div>
-    <script>window.Koalendar = window.Koalendar || function () { (Koalendar.props = Koalendar.props || []).push(arguments) };</script>
-    <script async src="https://koalendar.com/assets/widget.js"></script>
-    <script>Koalendar('inline', { "url": "https://koalendar.com/e/prenota-il-tuo-appuntamento-7", "selector": "#inline-widget-incontra-libe" });</script>
-    <!-- Koalendar Inline Embed End -->
-  </div>
-</div>
+          <!-- Card 3 -->
+          <article class="flip-card" data-reveal="rise" style="--d: .24s">
+            <div class="flip-inner">
+              <div class="flip-face flip-front">
+                <img src="/img/servizi/acconciature.jpg" alt="Raccolto intrecciato con fermagli colorati"
+                  loading="lazy" width="900" height="1350" />
+                <div class="flip-front-text">
+                  <h3>Acconciature da cerimonia</h3>
+                  <button class="flip-toggle" type="button" data-flip
+                    aria-label="Dettagli: Acconciature da cerimonia">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" aria-hidden="true">
+                      <path d="M12 5v14M5 12h14" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="flip-face flip-back">
+                <h3>Acconciature da cerimonia</h3>
+                <p>Sposa, testimone, comunione o una serata importante. Su richiesta facciamo una prova prima, così il
+                  giorno stesso è già tutto deciso.</p>
+                <ul>
+                  <li>Prova acconciatura</li>
+                  <li>Raccolti e semiraccolti</li>
+                  <li>Onde e piega da evento</li>
+                </ul>
+                <div class="flip-back-actions">
+                  <a href="#contatti" class="btn btn-light"
+                    data-wa="Ciao Debora, vorrei informazioni per un'acconciatura da cerimonia.">Prenota <span
+                      class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
+                      </svg></span></a>
+                  <button class="flip-toggle" type="button" data-flip aria-label="Torna alla foto">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                      stroke-linecap="round" aria-hidden="true">
+                      <path d="M6 6l12 12M18 6L6 18" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
 
+        <div class="services-more">
+          <a class="link-arrow" href="/servizi.html">Vedi tutti i servizi <svg viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+              aria-hidden="true">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg></a>
+        </div>
+      </div>
+    </section>
 
+    <!-- IL SALONE (foto provvisorie da Unsplash: sostituire con foto reali del salone) -->
+    <section class="salon" id="salone" aria-labelledby="salone-title">
+      <div class="wrap">
+        <div class="salon-head">
+          <h2 id="salone-title" data-reveal="rise">Il salone</h2>
+          <div class="salon-intro" data-reveal="rise" style="--d: .1s">
+            <p class="lede">Uno spazio luminoso in Via Valsesia, a Biandrate. Ti sedi, ti offriamo un caffè e per
+              un'ora pensiamo solo ai tuoi capelli.</p>
+          </div>
+        </div>
+
+        <div class="masonry">
+          <button class="tile" type="button" data-lightbox data-reveal="clip"><img src="/img/salone/salone-5.jpg"
+              alt="Postazione lavaggio con cliente" loading="lazy" width="1100" height="1648" /></button>
+          <button class="tile" type="button" data-lightbox data-reveal="clip" style="--d: .1s"><img
+              src="/img/salone/salone-1.jpg" alt="Postazioni con poltrone rosa e specchi" loading="lazy" width="1100"
+              height="733" /></button>
+          <button class="tile" type="button" data-lightbox data-reveal="clip" style="--d: .2s"><img
+              src="/img/salone/salone-6.jpg" alt="Spazzole, pettini e piastra sul banco di lavoro" loading="lazy"
+              width="1100" height="632" /></button>
+          <button class="tile" type="button" data-lightbox data-reveal="clip" style="--d: .05s"><img
+              src="/img/salone/salone-3.jpg" alt="Sala con specchi tondi e poltrone nere" loading="lazy" width="1100"
+              height="764" /></button>
+          <button class="tile" type="button" data-lightbox data-reveal="clip" style="--d: .15s"><img
+              src="/img/salone/salone-2.jpg" alt="Postazioni affacciate sulle finestre" loading="lazy" width="1100"
+              height="825" /></button>
+          <button class="tile" type="button" data-lightbox data-reveal="clip" style="--d: .25s"><img
+              src="/img/salone/salone-4.jpg" alt="Il salone visto dall'ingresso" loading="lazy" width="1100"
+              height="734" /></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- I MIEI LAVORI (foto provvisorie da Unsplash: sostituire con i lavori di Debora) -->
+    <section class="works" id="lavori" aria-labelledby="lavori-title">
+      <div class="wrap">
+        <div class="works-head">
+          <h2 id="lavori-title" data-reveal="rise">I miei lavori</h2>
+          <p class="lede" data-reveal="rise" style="--d: .1s">Alcuni dei look usciti dal salone. Tocca una foto per
+            vederla grande.</p>
+        </div>
+
+        <div class="works-grid">
+          <button class="work work-tall" type="button" data-lightbox data-caption="Biondo caramello, onde morbide"
+            data-reveal="clip">
+            <img src="/img/lavori/lavoro-1.jpg" alt="Capelli lunghi biondi con onde morbide, vista da dietro"
+              loading="lazy" width="1000" height="1500" />
+            <span class="work-cap">Biondo caramello</span>
+          </button>
+          <button class="work" type="button" data-lightbox data-caption="Piega mossa su castano dorato"
+            data-reveal="clip" style="--d: .1s">
+            <img src="/img/lavori/lavoro-2.jpg" alt="Capelli castani mossi su sfondo rosa" loading="lazy" width="1000"
+              height="668" />
+            <span class="work-cap">Piega mossa</span>
+          </button>
+          <button class="work" type="button" data-lightbox data-caption="Raccolto con onde per cerimonia"
+            data-reveal="clip" style="--d: .2s">
+            <img src="/img/lavori/lavoro-3.jpg" alt="Raccolto in preparazione con onde fissate" loading="lazy"
+              width="1000" height="667" />
+            <span class="work-cap">Raccolto cerimonia</span>
+          </button>
+          <button class="work work-tall" type="button" data-lightbox data-caption="Taglio uomo, laterali corti"
+            data-reveal="clip" style="--d: .05s">
+            <img src="/img/lavori/lavoro-6.jpg" alt="Uomo con taglio corto ai lati durante la piega"
+              loading="lazy" width="1000" height="1500" />
+            <span class="work-cap">Taglio uomo</span>
+          </button>
+          <button class="work" type="button" data-lightbox data-caption="Ricci naturali definiti" data-reveal="clip"
+            style="--d: .15s">
+            <img src="/img/lavori/lavoro-5.jpg" alt="Ricci naturali voluminosi" loading="lazy" width="1000"
+              height="1000" />
+            <span class="work-cap">Ricci naturali</span>
+          </button>
+          <button class="work" type="button" data-lightbox data-caption="Pompadour con sfumatura" data-reveal="clip"
+            style="--d: .25s">
+            <img src="/img/lavori/lavoro-4.jpg" alt="Uomo con pompadour e sfumatura laterale" loading="lazy"
+              width="1000" height="1498" />
+            <span class="work-cap">Pompadour</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERCHÉ SCEGLIERCI + RECENSIONI GOOGLE -->
+    <section class="why" id="recensioni" aria-labelledby="why-title">
+      <div class="wrap why-inner">
+        <div class="why-score" data-reveal="rise">
+          <h2 id="why-title">Perché sceglierci</h2>
+          <div class="score">
+            <span class="score-num">4,9</span>
+            <div class="score-meta">
+              <span class="stars stars-lg" aria-hidden="true">
+                <svg viewBox="0 0 100 20">
+                  <use href="#star" x="0" width="20" height="20" />
+                  <use href="#star" x="20" width="20" height="20" />
+                  <use href="#star" x="40" width="20" height="20" />
+                  <use href="#star" x="60" width="20" height="20" />
+                  <use href="#star" x="80" width="20" height="20" />
+                </svg>
+              </span>
+              <span>30 recensioni su Google</span>
+            </div>
+          </div>
+          <a class="btn btn-solid"
+            href="https://www.google.com/maps/search/?api=1&amp;query=Orella+Debora+Biandrate" target="_blank"
+            rel="noopener">Leggi le recensioni <span class="btn-icon"><svg viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M7 17L17 7M8 7h9v9" />
+              </svg></span></a>
+        </div>
+
+        <ul class="reasons">
+          <li data-reveal="rise">
+            <h3>Per lei e per lui</h3>
+            <p>Acconciature unisex: la stessa cura per un balayage o per un taglio uomo con la sfumatura.</p>
+          </li>
+          <li data-reveal="rise" style="--d: .08s">
+            <h3>Orario continuato su richiesta</h3>
+            <p>Se esci tardi dal lavoro o hai solo la pausa pranzo, chiedi: troviamo l'orario che ti serve.</p>
+          </li>
+          <li data-reveal="rise" style="--d: .16s">
+            <h3>Su appuntamento, senza attese</h3>
+            <p>Quando arrivi la poltrona è tua. Prenoti al telefono o su WhatsApp.</p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Recensioni: incollare qui il testo reale delle recensioni Google (nome + testo). -->
+      <div class="wrap">
+        <div class="reviews">
+          <figure class="review" data-reveal="rise">
+            <span class="review-flag">Testo segnaposto</span>
+            <blockquote>Incolla qui una recensione reale da Google: due o tre frasi, così come le ha scritte la
+              cliente.</blockquote>
+            <figcaption>Nome cliente <span>su Google</span></figcaption>
+          </figure>
+          <figure class="review" data-reveal="rise" style="--d: .08s">
+            <span class="review-flag">Testo segnaposto</span>
+            <blockquote>Seconda recensione: meglio una che racconta un servizio preciso, per esempio un colore o
+              un'acconciatura.</blockquote>
+            <figcaption>Nome cliente <span>su Google</span></figcaption>
+          </figure>
+          <figure class="review" data-reveal="rise" style="--d: .16s">
+            <span class="review-flag">Testo segnaposto</span>
+            <blockquote>Terza recensione: se possibile di un cliente uomo, per mostrare che il salone è unisex.
+            </blockquote>
+            <figcaption>Nome cliente <span>su Google</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- LE MIE CERTIFICAZIONI
+         Per aggiungerne una: copia un <li>. Immagine in /img/certificazioni/.
+         Se il certificato è un PDF, metti il PDF in href e un'immagine di anteprima in src. -->
+    <section class="certs" id="certificazioni" aria-labelledby="certs-title">
+      <div class="wrap" data-carousel>
+        <div class="certs-head">
+          <h2 id="certs-title" data-reveal="rise">Le mie certificazioni</h2>
+          <div class="carousel-controls">
+            <span class="carousel-count" data-count aria-live="polite"></span>
+            <button type="button" class="round-btn" data-prev aria-label="Certificazione precedente">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M19 12H5M12 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button type="button" class="round-btn" data-next aria-label="Certificazione successiva">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <ul class="carousel-track" aria-label="Certificazioni, scorri in orizzontale">
+          <li class="cert">
+            <a href="/img/certificazioni/certificato-1.svg" target="_blank" rel="noopener">
+              <span class="cert-paper"><img src="/img/certificazioni/certificato-1.svg" alt="Attestato di colorimetria avanzata"
+                  loading="lazy" width="1123" height="794" draggable="false" /></span>
+              <span class="cert-name">Colorimetria avanzata</span>
+              <span class="cert-meta">Ente e anno da inserire</span>
+            </a>
+          </li>
+          <li class="cert">
+            <a href="/img/certificazioni/certificato-2.svg" target="_blank" rel="noopener">
+              <span class="cert-paper"><img src="/img/certificazioni/certificato-2.svg" alt="Attestato sulle tecniche di balayage"
+                  loading="lazy" width="1123" height="794" draggable="false" /></span>
+              <span class="cert-name">Tecniche di balayage</span>
+              <span class="cert-meta">Ente e anno da inserire</span>
+            </a>
+          </li>
+          <li class="cert">
+            <a href="/img/certificazioni/certificato-3.svg" target="_blank" rel="noopener">
+              <span class="cert-paper"><img src="/img/certificazioni/certificato-3.svg" alt="Attestato di acconciature sposa"
+                  loading="lazy" width="1123" height="794" draggable="false" /></span>
+              <span class="cert-name">Acconciature sposa</span>
+              <span class="cert-meta">Ente e anno da inserire</span>
+            </a>
+          </li>
+          <li class="cert">
+            <a href="/img/certificazioni/certificato-4.svg" target="_blank" rel="noopener">
+              <span class="cert-paper"><img src="/img/certificazioni/certificato-4.svg" alt="Attestato di taglio uomo e sfumature"
+                  loading="lazy" width="1123" height="794" draggable="false" /></span>
+              <span class="cert-name">Taglio uomo e sfumature</span>
+              <span class="cert-meta">Ente e anno da inserire</span>
+            </a>
+          </li>
+          <li class="cert">
+            <a href="/img/certificazioni/certificato-5.svg" target="_blank" rel="noopener">
+              <span class="cert-paper"><img src="/img/certificazioni/certificato-5.svg" alt="Attestato di trattamenti ricostruttivi"
+                  loading="lazy" width="1123" height="794" draggable="false" /></span>
+              <span class="cert-name">Trattamenti ricostruttivi</span>
+              <span class="cert-meta">Ente e anno da inserire</span>
+            </a>
+          </li>
+          <li class="cert">
+            <a href="/img/certificazioni/certificato-6.svg" target="_blank" rel="noopener">
+              <span class="cert-paper"><img src="/img/certificazioni/certificato-6.svg" alt="Attestato di aggiornamento tendenze"
+                  loading="lazy" width="1123" height="794" draggable="false" /></span>
+              <span class="cert-name">Aggiornamento tendenze</span>
+              <span class="cert-meta">Ente e anno da inserire</span>
+            </a>
+          </li>
+        </ul>
+
+        <div class="carousel-progress" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section class="contact" id="contatti" aria-labelledby="contatti-title">
+      <div class="wrap contact-inner">
+        <div class="contact-copy">
+          <h2 id="contatti-title" data-reveal="rise">Prenota il tuo appuntamento</h2>
+          <a class="contact-phone" href="tel:+390321838414" data-reveal="rise" style="--d: .08s">0321 83 84 14</a>
+          <div class="contact-actions" data-reveal="rise" style="--d: .16s">
+            <a class="btn btn-light" href="#" data-wa="Ciao Debora, vorrei prenotare un appuntamento.">Scrivici su
+              WhatsApp <span class="btn-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg></span></a>
+          </div>
+          <dl class="contact-list" data-reveal="rise" style="--d: .24s">
+            <div>
+              <dt>Indirizzo</dt>
+              <dd>Via Valsesia 5<br />28061 Biandrate (NO)</dd>
+            </div>
+            <div>
+              <dt>Orari</dt>
+              <dd>Su appuntamento<br />Orario continuato su richiesta</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="contact-map" data-reveal="clip">
+          <iframe title="Mappa: Via Valsesia 5, Biandrate"
+            src="https://www.google.com/maps?q=Via+Valsesia+5,+28061+Biandrate+NO&amp;output=embed" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <a class="map-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Via+Valsesia+5+Biandrate"
+            target="_blank" rel="noopener">Indicazioni stradali</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <div id="footer"></div>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="star" viewBox="0 0 20 20">
+      <path fill="currentColor"
+        d="M10 1.6l2.5 5.3 5.8.7-4.3 4 1.1 5.7L10 14.5l-5.1 2.8L6 11.6 1.7 7.6l5.8-.7z" />
+    </symbol>
+  </svg>
 </body>
 
 </html>

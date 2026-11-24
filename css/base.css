@@ -1,82 +1,190 @@
 /* ==========================================================================
-   Typography & Base Element Styles
+   Debora Acconciature: token, reset, tipografia
+   Colori presi dal logo: magenta #c12471, corallo e rosa dell'acquerello.
    ========================================================================== */
 
-h1 {
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 72px;
-  line-height: 80px;
-  color: #111111;
+:root {
+  --magenta: #c12471;
+  --magenta-deep: #8f1652;
+  --magenta-soft: #f6dbe7;
+  --plum: #2a0c1d;
+  --plum-2: #3d1529;
+  --blush: #fbf4f7;
+  --paper: #ffffff;
+  --coral: #f88e5e;
+  --rose: #fe4e74;
+  --ink: #2a0c1d;
+  --ink-soft: #6a4657;
+  --on-dark-soft: #e9c9d7;
+  --whatsapp: #25d366;
+
+  --font-display: "Bodoni Moda", "Didot", "Bodoni 72", serif;
+  --font-body: "Encode Sans", "Segoe UI", sans-serif;
+
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 16px;
+  --r-pill: 999px;
+
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+  --s-10: 128px;
+
+  --gutter: clamp(16px, 5vw, 64px);
+  --max: 1320px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --header-h: 84px;
 }
 
-h2 {
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 23px;
-  letter-spacing: 0.2px;
-  text-align: center;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-h2.transparent {
-  color: rgba(0, 0, 0, 0.4);
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--header-h);
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--magenta) var(--blush);
 }
 
-h5 {
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 33px;
-  letter-spacing: 0.2px;
-  color: #111111bb;
+body {
+  background: var(--blush);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
 }
 
-h6 {
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
-  letter-spacing: 5px;
-  color: #8e5568;
+body.menu-open {
+  overflow: hidden;
 }
 
-p {
-  font-family: 'Montserrat', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 21px;
-  line-height: 160%;
-  letter-spacing: 0.2px;
-  color: #111111;
-}
-
-p.white {
-  color: #fcfbfa;
-}
-
-p.bold {
-  font-weight: 500;
-  text-indent: 15px;
-}
-
-p.soft {
-  color: #8e5568;
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 a {
-  text-decoration: none;
-  padding: 0;
-  margin: 0;
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
 }
 
-a,
-a:visited,
-a:hover,
-a:active {
+button {
+  font: inherit;
   color: inherit;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+::selection {
+  background: var(--magenta);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+  border-radius: var(--r-sm);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  font-optical-sizing: auto;
+}
+
+h1 {
+  font-size: clamp(3rem, 7.4vw, 6rem);
+}
+
+h2 {
+  font-size: clamp(2.4rem, 5vw, 4.25rem);
+}
+
+h3 {
+  font-size: clamp(1.6rem, 2.4vw, 2rem);
+  line-height: 1.1;
+}
+
+p {
+  max-width: 62ch;
+  text-wrap: pretty;
+}
+
+.lede {
+  font-size: clamp(1.0625rem, 1.4vw, 1.25rem);
+  line-height: 1.55;
+}
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--s-4);
+  top: -60px;
+  z-index: 2000;
+  background: var(--plum);
+  color: #fff;
+  padding: var(--s-2) var(--s-4);
+  border-radius: var(--r-sm);
+  transition: top 0.2s var(--ease-out);
+}
+
+.skip-link:focus {
+  top: var(--s-4);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

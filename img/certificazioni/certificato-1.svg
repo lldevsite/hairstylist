@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1123 794" width="1123" height="794">
+<rect width="1123" height="794" fill="#fffdfd"/>
+<rect x="28" y="28" width="1067" height="738" fill="none" stroke="#c12471" stroke-width="3"/>
+<rect x="44" y="44" width="1035" height="706" fill="none" stroke="#c12471" stroke-width="1" opacity=".5"/>
+<text x="561" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="30" letter-spacing="10" fill="#8f1652">ATTESTATO</text>
+<text x="561" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="58" font-style="italic" fill="#2a0c1d">Colorimetria avanzata</text>
+<line x1="381" y1="350" x2="742" y2="350" stroke="#f88e5e" stroke-width="2"/>
+<text x="561" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#5d3a4a">rilasciato a Debora Orella</text>
+<text x="561" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" letter-spacing="4" fill="#c12471">SEGNAPOSTO: SOSTITUIRE CON IL CERTIFICATO REALE</text>
+</svg>

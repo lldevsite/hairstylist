@@ -1,405 +1,643 @@
 /* ==========================================================================
-   Global Reset & Layout Primitives
+   Componenti condivisi: logo, header, menu, bottoni, WhatsApp, lightbox, footer
    ========================================================================== */
 
-* {
-  margin: 0;
-  padding: 0;
+/* --- Logo orizzontale: la D con il volto + "ebora" --- */
+.brand {
+  --mark-h: 40px;
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 0;
+  color: inherit;
+  text-decoration: none;
+  line-height: 1;
 }
 
-html {
-  scroll-behavior: smooth;
+.brand-mark {
+  display: block;
+  height: var(--mark-h);
+  aspect-ratio: 1617 / 751;
+  background: currentColor;
+  -webkit-mask: url("/img/debora-mark.png") no-repeat center / contain;
+  mask: url("/img/debora-mark.png") no-repeat center / contain;
 }
 
-html,
-body {
-  overflow-x: hidden;
+.brand-word {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: calc(var(--mark-h) * 1.5);
+  letter-spacing: -0.01em;
+  line-height: 0.72;
+  margin-left: calc(var(--mark-h) * 0.02);
+  font-variation-settings: "opsz" 28;
 }
 
-.flex {
+.brand-tag {
+  display: block;
+  font-family: var(--font-body);
+  font-stretch: 80%;
+  font-size: calc(var(--mark-h) * 0.28);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-top: calc(var(--mark-h) * 0.22);
+  opacity: 0.85;
+}
+
+/* --- Header --- */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 900;
+  color: #fff;
+  transition:
+    background-color 0.4s var(--ease-out),
+    color 0.4s var(--ease-out),
+    box-shadow 0.4s var(--ease-out);
+}
+
+.site-header.is-solid {
+  background: rgba(251, 244, 247, 0.94);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  backdrop-filter: saturate(1.4) blur(12px);
+  color: var(--magenta);
+  box-shadow: 0 1px 0 rgba(42, 12, 29, 0.08);
+}
+
+.site-header.on-light {
+  color: var(--magenta);
+}
+
+.header-inner {
+  height: var(--header-h);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  gap: var(--s-6);
 }
 
-.row {
-  flex-direction: row;
-}
-
-.column {
-  flex-direction: column;
-}
-
-/* ==========================================================================
-   Buttons & Call to Action
-   ========================================================================== */
-
-.cta-btn-fancy {
-  display: inline-flex;
+.main-nav {
+  display: flex;
   align-items: center;
-  gap: 12px;
-  background-color: #111111;
-  color: #fcfbfa;
-  padding: 14px 24px 14px 28px;
-  text-decoration: none;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  gap: clamp(16px, 2.4vw, 36px);
+}
+
+.main-nav a {
   font-size: 0.95rem;
   font-weight: 500;
-  letter-spacing: -0.01em;
-  box-shadow: 0 10px 25px -5px rgba(17, 17, 17, 0.15);
-  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  border: 1px solid rgba(142, 85, 104, 0.3);
+  text-decoration: none;
   position: relative;
-  overflow: hidden;
+  padding-block: var(--s-2);
 }
 
-.cta-btn-fancy:hover {
-  background-color: #8e5568;
-  border-color: #8e5568;
-  transform: translateY(-2px);
-  box-shadow: 0 14px 30px -5px rgba(142, 85, 104, 0.3);
-  color: #ffffff;
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s var(--ease-out);
 }
 
-.cta-icon-wrapper {
-  width: 28px;
-  height: 28px;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.3s ease;
+.main-nav a:hover::after,
+.main-nav a[aria-current="page"]::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-.cta-arrow {
-  width: 14px;
-  height: 14px;
-  stroke: currentColor;
-  transition: transform 0.3s ease;
+.site-header .btn-call {
+  border: 1px solid currentColor;
+  border-radius: var(--r-pill);
+  padding: 9px 18px;
 }
 
-.cta-btn-fancy:hover .cta-icon-wrapper {
-  background-color: rgba(255, 255, 255, 0.2);
-  transform: translateX(3px);
-}
-
-.cta-btn-secondary {
-  text-decoration: underline #8e5568;
-}
-
-/* ==========================================================================
-   Navbar
-   ========================================================================== */
-
-#navbar {
-  width: 100%;
-  padding: 30px 40px;
-  box-sizing: border-box;
-
-  div {
-    justify-content: flex-start;
-    gap: 50px;
-
-    a {
-      gap: 30px;
-    }
-
-    .logo:hover {
-      animation: none;
-      opacity: 1;
-    }
-
-    a:hover {
-      animation: nav-lift 0.4s ease;
-      opacity: 0.6;
-    }
-
-    img {
-      height: 120px;
-    }
-  }
-}
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-
-#footer {
-  width: 100%;
-  padding: 30px 40px;
-  box-sizing: border-box;
-
-  .line {
-    width: 900px;
-    height: 1px;
-    background: rgba(0, 0, 0, 0.4);
-  }
-
-  div {
-    gap: 40px;
-
-    img {
-      height: 60px;
-    }
-  }
-
-  div div {
-    gap: 50px;
-  }
-}
-
-/* ==========================================================================
-   Responsive Styles for Navbar & Footer
-   ========================================================================== */
-
-@media (max-width: 1024px) {
-  #navbar {
-    padding: 24px 28px;
-  }
-
-  #footer {
-    padding: 24px 28px;
-
-    .line {
-      width: min(900px, 100%);
-    }
-  }
-}
-
-@media (max-width: 700px) {
-  #navbar {
-    padding: 20px;
-
-    .logo {
-      font-size: 36px;
-      line-height: 42px;
-    }
-
-    img {
-      width: 26px;
-      height: 26px;
-    }
-  }
-
-  #footer {
-    padding: 20px;
-    gap: 24px;
-
-    div {
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    div div {
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    h2 {
-      font-size: 14px;
-      line-height: 18px;
-    }
-  }
-}
-
-/* ==========================================================================
-   Side Menu Drawer
-   ========================================================================== */
-
-.site-navbar {
-  width: 100%;
-}
-
-.navbar-spacer {
-  width: 30px;
-  height: 30px;
-  display: block;
+.site-header .btn-call::after {
+  display: none;
 }
 
 .menu-button {
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  display: flex;
+  display: none;
+  width: 44px;
+  height: 44px;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
+  margin-right: -10px;
 }
 
-.menu-icon {
-  width: 30px;
-  height: 30px;
+.menu-button span,
+.menu-button span::before {
   display: block;
+  width: 24px;
+  height: 1.5px;
+  background: currentColor;
+  position: relative;
 }
 
+.menu-button span::before {
+  content: "";
+  position: absolute;
+  top: 7px;
+  width: 16px;
+  right: 0;
+}
+
+.menu-button span {
+  transform: translateY(-3px);
+}
+
+/* --- Menu mobile --- */
 #menu-overlay {
   position: fixed;
   inset: 0;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.08);
+  background: rgba(42, 12, 29, 0.4);
   opacity: 0;
   visibility: hidden;
-  pointer-events: none;
   transition:
-    opacity 0.28s ease,
-    visibility 0.28s ease;
+    opacity 0.35s var(--ease-out),
+    visibility 0.35s;
 }
 
 #menu-overlay.open {
   opacity: 1;
   visibility: visible;
-  pointer-events: auto;
 }
 
 #side-menu {
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0 0 0 auto;
   z-index: 1001;
-
-  width: 270px;
-  height: 100vh;
-  box-sizing: border-box;
-  padding: 26px 30px 30px;
-
-  background: #ffffff;
-  border-right: 1px solid rgba(0, 0, 0, 0.18);
-
+  width: min(88vw, 380px);
+  background: var(--magenta);
+  color: #fff;
+  padding: var(--s-5) var(--s-6) var(--s-6);
   display: flex;
   flex-direction: column;
-
-  transform: translateX(-100%);
-  transition: transform 0.3s ease;
+  transform: translateX(100%);
+  transition: transform 0.5s var(--ease-out);
+  visibility: hidden;
 }
 
 #side-menu.open {
-  transform: translateX(0);
+  transform: none;
+  visibility: visible;
 }
 
-.side-menu-header {
+.side-menu-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 24px;
+  height: 44px;
+  margin-bottom: var(--s-7);
+}
 
-  font-family: "SansSerif";
-  font-size: 22px;
-  line-height: 28px;
-  color: #000000;
+.side-menu-head .brand {
+  --mark-h: 30px;
 }
 
 #menu-close {
-  width: 30px;
-  height: 30px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-
-  font-family: Arial, sans-serif;
-  font-size: 30px;
-  font-weight: 300;
-  line-height: 30px;
-  color: rgba(0, 0, 0, 0.65);
-}
-
-.side-menu-links {
-  display: flex;
-  flex-direction: column;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  margin-right: -10px;
 }
 
 .side-menu-links a {
   display: block;
-  padding: 13px 0;
-  border-top: 1px solid rgba(0, 0, 0, 0.14);
-
-  font-family: "SansSerif";
-  font-size: 18px;
-  line-height: 26px;
-  color: #000000;
-}
-
-.side-menu-links a:last-child {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+  font-family: var(--font-display);
+  font-size: 2.1rem;
+  line-height: 1.15;
+  padding-block: var(--s-2);
+  text-decoration: none;
 }
 
 .side-menu-links a:hover {
-  opacity: 0.6;
+  color: var(--magenta-soft);
 }
 
-.side-menu-social {
+.side-menu-foot {
   margin-top: auto;
+  display: grid;
+  gap: var(--s-3);
+  font-size: 0.95rem;
+}
+
+.side-menu-foot a {
+  text-decoration: none;
+}
+
+/* --- Bottoni --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  min-height: 52px;
+  padding: 0 var(--s-3) 0 var(--s-5);
+  border-radius: var(--r-pill);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition:
+    background-color 0.35s var(--ease-out),
+    color 0.35s var(--ease-out),
+    transform 0.35s var(--ease-out);
+}
+
+.btn .btn-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  transition: transform 0.45s var(--ease-out);
+}
+
+.btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.btn:hover .btn-icon {
+  transform: translateX(4px);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-light {
+  background: #fff;
+  color: var(--magenta);
+}
+
+.btn-light .btn-icon {
+  background: var(--magenta);
+  color: #fff;
+}
+
+.btn-light:hover {
+  background: var(--magenta-soft);
+  color: var(--magenta-deep);
+}
+
+.btn-solid {
+  background: var(--magenta);
+  color: #fff;
+}
+
+.btn-solid .btn-icon {
+  background: #fff;
+  color: var(--magenta);
+}
+
+.btn-solid:hover {
+  background: var(--magenta-deep);
+}
+
+.btn-ghost {
+  padding: 0 var(--s-5);
+  border: 1px solid currentColor;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.link-arrow svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.4s var(--ease-out);
+}
+
+.link-arrow:hover svg {
+  transform: translateX(4px);
+}
+
+/* --- WhatsApp sempre visibile --- */
+.wa-fab {
+  position: fixed;
+  right: clamp(16px, 3vw, 32px);
+  bottom: clamp(16px, 3vw, 32px);
+  z-index: 950;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 0;
+  height: 60px;
+  padding: 0 18px;
+  border-radius: var(--r-pill);
+  background: var(--whatsapp);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 10px 28px -8px rgba(17, 80, 40, 0.55);
+  transition:
+    gap 0.45s var(--ease-out),
+    padding 0.45s var(--ease-out),
+    background-color 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out);
 }
 
-.side-menu-social a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 22px;
-  height: 22px;
-
-  font-family: Arial, sans-serif;
-  font-size: 20px;
-  line-height: 22px;
-  color: rgba(0, 0, 0, 0.65);
+.wa-fab svg {
+  width: 26px;
+  height: 26px;
+  flex: none;
 }
 
-.side-menu-social a:hover {
-  color: #000000;
-}
-
-body.menu-open {
+.wa-fab .wa-label {
+  max-width: 0;
   overflow: hidden;
+  white-space: nowrap;
+  transition: max-width 0.45s var(--ease-out);
 }
 
-@media (max-width: 700px) {
-  #side-menu {
-    width: 82vw;
-    max-width: 320px;
-    padding: 24px 20px 22px;
+.wa-fab:hover,
+.wa-fab:focus-visible {
+  gap: var(--s-3);
+  padding: 0 22px 0 18px;
+  background: #1fbf5b;
+}
+
+.wa-fab:hover .wa-label,
+.wa-fab:focus-visible .wa-label {
+  max-width: 220px;
+}
+
+.wa-fab:active {
+  transform: scale(0.96);
+}
+
+.wa-fab::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 2px solid var(--whatsapp);
+  animation: wa-ring 2.8s var(--ease-out) 2s 3;
+  pointer-events: none;
+}
+
+@keyframes wa-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
   }
 
-  .side-menu-header {
-    font-size: 21px;
-    margin-bottom: 22px;
+  70%,
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+/* --- Lightbox --- */
+.lightbox {
+  border: 0;
+  padding: 0;
+  margin: auto;
+  background: transparent;
+  max-width: min(92vw, 1100px);
+  max-height: 90vh;
+  overflow: visible;
+}
+
+.lightbox::backdrop {
+  background: rgba(42, 12, 29, 0.9);
+}
+
+.lightbox img {
+  max-height: 84vh;
+  width: auto;
+  border-radius: var(--r-md);
+}
+
+.lightbox[open] img {
+  animation: lb-in 0.5s var(--ease-out);
+}
+
+.lightbox figcaption {
+  color: var(--on-dark-soft);
+  margin-top: var(--s-3);
+  font-size: 0.95rem;
+}
+
+.lightbox-close {
+  position: fixed;
+  top: var(--s-4);
+  right: var(--s-4);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--plum);
+  display: grid;
+  place-items: center;
+}
+
+@keyframes lb-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+}
+
+/* --- Rivelazioni allo scroll (contenuto visibile se JS manca) --- */
+/* Il clip va sui figli (foto, mappa), mai sul contenitore osservato:
+   Chrome desktop considera invisibile un elemento ritagliato del tutto
+   e l'IntersectionObserver non scatterebbe mai. */
+.js [data-reveal="clip"] > img,
+.js [data-reveal="clip"] > iframe {
+  clip-path: inset(100% 0 0 0);
+  transition:
+    clip-path 1.1s var(--ease-out),
+    transform 1s var(--ease-out);
+  transition-delay: var(--d, 0s), 0s;
+}
+
+.js [data-reveal="clip"].is-in > img,
+.js [data-reveal="clip"].is-in > iframe {
+  clip-path: inset(0 0 0 0);
+}
+
+.js [data-reveal="rise"] {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.9s var(--ease-out),
+    transform 0.9s var(--ease-out);
+  transition-delay: var(--d, 0s);
+}
+
+.js [data-reveal="rise"].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .js [data-reveal="clip"] > img,
+  .js [data-reveal="clip"] > iframe,
+  .js [data-reveal="rise"] {
+    clip-path: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* --- Footer --- */
+.site-footer {
+  background: var(--plum);
+  color: var(--on-dark-soft);
+  padding-block: var(--s-8) var(--s-6);
+}
+
+.footer-top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--s-6);
+  padding-bottom: var(--s-7);
+  border-bottom: 1px solid rgba(233, 201, 215, 0.2);
+}
+
+.footer-top .brand {
+  --mark-h: 52px;
+  color: #fff;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-top .brand-row {
+  display: flex;
+  align-items: flex-end;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3) var(--s-6);
+}
+
+.footer-nav a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.footer-nav a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding-top: var(--s-5);
+  font-size: 0.875rem;
+}
+
+.footer-bottom a {
+  color: var(--on-dark-soft);
+}
+
+/* --- Responsive header --- */
+@media (max-width: 960px) {
+  :root {
+    --header-h: 68px;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: flex;
+  }
+
+  .site-header .brand {
+    --mark-h: 32px;
+  }
+
+  .wa-fab {
+    height: 56px;
+    padding: 0 15px;
+  }
+}
+
+/* --- Mobile: bottoni e dettagli più compatti --- */
+@media (max-width: 560px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .btn {
+    min-height: 46px;
+    font-size: 0.925rem;
+    padding: 0 var(--s-2) 0 var(--s-5);
+  }
+
+  .btn .btn-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .btn svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .btn-ghost {
+    padding: 0 var(--s-5);
+  }
+
+  .wa-fab {
+    height: 52px;
+    padding: 0 13px;
+  }
+
+  .wa-fab svg {
+    width: 24px;
+    height: 24px;
   }
 
   .side-menu-links a {
-    padding: 12px 0;
-    font-size: 17px;
-  }
-}
-
-@media (max-width: 420px) {
-  #side-menu {
-    width: 88vw;
-  }
-}
-
-/* ==========================================================================
-   Animations
-   ========================================================================== */
-
-@keyframes nav-lift {
-  0% {
-    transform: translateY(0);
+    font-size: 1.75rem;
   }
 
-  50% {
-    transform: translateY(-3px);
+  .site-footer {
+    padding-block: var(--s-7) var(--s-5);
   }
 
-  100% {
-    transform: translateY(0);
+  .footer-top .brand {
+    --mark-h: 40px;
+  }
+
+  .footer-top {
+    padding-bottom: var(--s-6);
+  }
+
+  .footer-nav {
+    gap: var(--s-2) var(--s-5);
+    font-size: 0.95rem;
+  }
+
+  .footer-bottom {
+    font-size: 0.8rem;
   }
 }
